@@ -1,0 +1,25 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+@media screen and (min-width:600px) {
+  #menu_top{
+    display:none;
+  }
+}
+
+
+@media screen and (max-width:600px) {
+  #menu_left{
+    display:none;
+  }
+  #mainpage{
+    margin-top: 40px;
+    margin-left: -260px;
+  }
+}
