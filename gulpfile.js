@@ -25,6 +25,12 @@ gulp.task('default', function () {
                 .pipe(gulp.dest('./html'))
                 .pipe(livereload())
         })
+        gulp.watch('./views/*/*.jade', function (event) {
+            gulp.src(event.path)
+                .pipe(jade())
+                .pipe(gulp.dest('./html'))
+                .pipe(livereload())
+        })
         gulp.watch('./public/stylesheets/*.css', function (event) {
             gulp.src(event.path)
                 .pipe(livereload())
