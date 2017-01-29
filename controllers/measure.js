@@ -1,4 +1,4 @@
-var model = require('../models/config')
+var models = require('../models')
 
 module.exports = {
     //funciones del controlador

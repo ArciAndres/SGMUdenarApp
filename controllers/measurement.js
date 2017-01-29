@@ -1,9 +1,9 @@
-var model = require('../models/config')
+var models = require('../models')
 
 module.exports = {
     //funciones del controlador
     index : function(req, res, next) {
-        model.Measurement.findAll().then(function (measurements) {
+        models.measurement.findAll().then(function (measurements) {
             res.render('measurement/index', {title: 'SGM Udenar', measurements: measurements});
         })
     }
