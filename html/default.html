@@ -1,0 +1,13 @@
+<!DOCTYPE html><html><head><title></title><link rel="stylesheet" href="/stylesheets/style.css"><link rel="stylesheet" href="/semantic/semantic.min.css"><script src="/javascripts/jquery-3.1.1.min.js"></script><script src="/semantic/semantic.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"></head><body><ui class="container"><div id="menu_top" class="ui fixed inverted menu"><div class="ui container"><a id="m_btn" class="launch icon item"><i class="content icon"></i></a><div class="item">SGM Udenar</div><div class="right menu"><div class="vertically fitted borderless item"><div class="ui button">Alternar</div></div></div></div></div><div id="menu_left" class="ui sidebar inverted vertical menu left"><div class="item"> <div class="ui inverted accordion"><div class="title active"><header>Información1</header></div><div class="content active"><div class="menu"><a class="item">Medida 1</a><a class="item">Medida 2</a></div></div></div></div><div class="item"> <div class="ui inverted accordion"><div class="title active"><header>Acciones</header></div><div class="content active"><div class="menu"><a class="item">Medida 1</a><a class="item">Medida 2</a></div></div></div></div></div><div id="menu_left_hide" class="ui sidebar inverted vertical menu left"><div class="item"> <div class="ui inverted accordion"><div class="title active"><header>Información2</header></div><div class="content active"><div class="menu"><a class="item">Medida 1</a><a class="item">Medida 2</a></div></div></div></div><div class="item"> <div class="ui inverted accordion"><div class="title active"><header>Acciones</header></div><div class="content active"><div class="menu"><a class="item">Medida 1</a><a class="item">Medida 2</a></div></div></div></div></div><div id="mainpage" class="pusher"><div class="ui masthead vertical segment"></div></div><script>$('.ui.accordion')
+	.accordion()
+;
+$(function(){
+	$('#m_btn').on('click',function(e){
+		e.preventDefault();
+		//$('#menu_left_hide').sidebar('setting', 'transition', 'overlay')
+		$('#menu_left_hide').sidebar('toggle');
+	});
+});
+$(function(){
+	$('#menu_left').addClass("visible");
+})</script></ui></body></html>

@@ -2,13 +2,13 @@ doctype html
 html
 	head
 		title= title
-		link(rel='stylesheet', href='/stylesheets/style.css')
 		link(rel="stylesheet", href="/semantic/semantic.min.css")
 		script(src="/javascripts/jquery-3.1.1.min.js")
 		script(src="/semantic/semantic.min.js")
+		link(rel='stylesheet', href='/stylesheets/style.css')
 		meta(name="viewport", content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0")
 	body
-		ui.container
+		.full.height
 			#menu_top.ui.fixed.inverted.menu
 				.ui.container
 					a#m_btn.launch.icon.item
@@ -53,8 +53,7 @@ html
 								a.item Medida 1
 								a.item Medida 2
 			#mainpage.pusher
-				.ui.masthead.vertical.segment
-					block content
+				block content
 			script.
 				$('.ui.accordion')
 					.accordion()

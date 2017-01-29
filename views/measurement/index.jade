@@ -1,4 +1,20 @@
 extends ../default
 
 block content
-		h1 Listado de medidas 
+		.ui.container.grid.padded
+			.sixteen.wide.column
+				h2.ui.header.dividing.blue Listado de medidas 
+				table.ui.table.celled
+					thead
+						tr
+							th ID
+							th time
+							th ID Medidor
+							th Fase
+					tbody
+						each measurement in measurements
+							tr
+								td= measurement.id
+								td= measurement.time
+								td= measurement.id_meter
+								td= measurement.phase
