@@ -5,66 +5,69 @@ html
 		link(rel="stylesheet", href="/semantic/semantic.min.css")
 		script(src="/javascripts/jquery-3.1.1.min.js")
 		script(src="/semantic/semantic.min.js")
+		script(src="/javascripts/chart.js/dist/Chart.bundle.js")
 		link(rel='stylesheet', href='/stylesheets/style.css')
-		meta(name="viewport", content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0")
+		meta(name="viewport", content="width=device-width,initial-scale=1.0, minimum-scale=1")
 	body
-		.full.height
-			#menu_top.ui.fixed.inverted.menu
-				.ui.container
-					a#m_btn.launch.icon.item
-						i.content.icon
-					.item
-						| SGM Udenar
-					.right.menu
-						.vertically.fitted.borderless.item
-							.ui.button Alternar
-			#menu_left.ui.sidebar.inverted.vertical.menu.left
-				.item 
-					.ui.inverted.accordion
-						.title.active
-							header Información1
-						.content.active
-							.menu
-								a.item Medida 1
-								a.item Medida 2
-				.item 
-					.ui.inverted.accordion
-						.title.active
-							header Acciones
-						.content.active
-							.menu
-								a.item Medida 1
-								a.item Medida 2
-			#menu_left_hide.ui.sidebar.inverted.vertical.menu.left
-				.item 
-					.ui.inverted.accordion
-						.title.active
-							header Información2
-						.content.active
-							.menu
-								a.item Medida 1
-								a.item Medida 2
-				.item 
-					.ui.inverted.accordion
-						.title.active
-							header Acciones
-						.content.active
-							.menu
-								a.item Medida 1
-								a.item Medida 2
-			#mainpage.pusher
-				block content
-			script.
-				$('.ui.accordion')
-					.accordion()
-				;
-				$(function(){
-					$('#m_btn').on('click',function(e){
-						e.preventDefault();
-						//$('#menu_left_hide').sidebar('setting', 'transition', 'overlay')
-						$('#menu_left_hide').sidebar('toggle');
+		div
+				#menu_left_hide.ui.sidebar.inverted.vertical.menu.left  
+						.item 
+							.ui.inverted.accordion
+								.title.active
+									header Información2
+								.content.active
+									.menu
+										a.item Medida 1
+										a.item Medida 2
+						.item 
+							.ui.inverted.accordion
+								.title.active
+									header Acciones
+								.content.active
+									.menu
+										a.item Medida 1
+										a.item Medida 2
+				#menu_top.ui.fixed.inverted.menu
+					.ui.container
+						a#m_btn.launch.icon.item
+							i.content.icon
+						.item
+							| SGM Udenar
+						.right.menu
+							.vertically.fitted.borderless.item
+								.ui.button Alternar
+			
+				
+				#mainpage.dimmed.pusher
+					#menu_left(style="left: 0px; right: 0px;top: 0px;width: 200px !important").ui.sidebar.inverted.vertical.menu.left
+						.item 
+							.ui.inverted.accordion
+								.title.active
+									header Información1
+								.content.active
+									.menu
+										a.item Medida 1
+										a.item Medida 2
+						.item 
+							.ui.inverted.accordion
+								.title.active
+									header Acciones
+								.content.active
+									.menu
+										a.item Medida 1
+										a.item Medida 2
+					block content
+				script.
+					$('.ui.accordion')
+						.accordion()
+					;
+					$(function(){
+						$('#m_btn').on('click',function(e){
+							e.preventDefault();
+							//$('#menu_left_hide').sidebar('setting', 'transition', 'overlay')
+							$('#menu_left_hide').sidebar('toggle');
+						});
 					});
-				});
-				$(function(){
-					$('#menu_left').addClass("visible");
-				})
+					$(function(){
+						$('#menu_left').addClass("visible");
+					})
