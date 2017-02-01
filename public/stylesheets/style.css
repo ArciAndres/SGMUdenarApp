@@ -10,12 +10,28 @@ a {
   min-width: 0px;
 }
 
+#mainpage {
+    margin-top: 66px;
+}
+
+#maincontainer{
+  margin-left: 2em !important;
+  margin-right: 2em !important;
+  
+}
+
+
 @media screen and (min-width:600px) {
-  #menu_top{
+  #menu_top_hide{
     display:none;
   }
   #mainpage{
-    margin-left: 260px;
+    margin-left: 300px;
+    margin-top: 80px;
+    
+  }
+  #sgmudenarlogo{
+    height: 50px;
   }
 }
 
@@ -24,8 +40,14 @@ a {
   #menu_left{
     display:none;
   }
+  #menu_top{
+    display:none;
+  }
   #mainpage{
-    margin-top: 40px;
+    margin-top: 70px;
+  }
+  #sgmudenarlogo{
+    height: 30px;
   }
 }
 

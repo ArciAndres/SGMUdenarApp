@@ -12,64 +12,10 @@ html
 	body
 		div
 				#menu_left_hide.ui.sidebar.inverted.vertical.menu.left  
-						.item 
-							.ui.inverted.accordion
-								.title
-									i.dropdown.icon
-									span Información
-								.content
-									.menu.transition.hidden
-										a.item Resumen
-										a.item Entradas
-						.item 
-							.ui.inverted.accordion
-								.title
-									i.dropdown.icon
-									span Acciones
-								.content
-									.menu.transition.hidden
-										a.item 
-										a.item Medida 2
-						.item 
-							.ui.inverted.accordion
-								.title
-									i.dropdown.icon
-									span Registros
-								.content
-									.menu.transition.hidden
-										a.item Históricos
-										a.item Eventos
-						.item 
-							.ui.inverted.accordion
-								.title
-									i.dropdown.icon
-									span Configuración
-								.content
-									.menu.transition.hidden
-										a.item Parámetros
-										a.item Conectividad
-						.item 
-							.ui.inverted.accordion
-								.title
-									i.dropdown.icon
-									span Ayuda
-								.content
-									.menu.transition.hidden
-										a.item Ayuda de SGM Udenar
-										a.item Acerca de...
-				#menu_top.ui.fixed.inverted.menu
-					.ui.container
-						a#m_btn.launch.icon.item
-							i.content.icon
 						.item
-							| SGM Udenar
-						.right.menu
-							.vertically.fitted.borderless.item
-								.ui.button Alternar
-			
-				
-				#mainpage.dimmed.pusher
-					#menu_left(style="left: 0px; right: 0px;top: 0px;width: 200px !important").ui.sidebar.inverted.vertical.menu.left
+							a(href="/").class.ui.image
+								//img(src="/images/AlternarFull.png")
+								img(src="/images/UdenarLogoFull.png")
 						.item 
 							.ui.inverted.accordion
 								.title
@@ -115,6 +61,82 @@ html
 									.menu.transition.hidden
 										a.item Ayuda de SGM Udenar
 										a.item Acerca de...
+						.item
+							a(href="/").class.ui.image
+								img(src="/images/AlternarLong.png")
+				#menu_top_hide.ui.fixed.inverted.menu
+					.ui.container
+						a#m_btn.launch.icon.item
+							i.content.icon
+						.item
+							a(href="/").class.ui.image
+								img#sgmudenarlogo(src="/images/SGMUdenar.png")
+				#mainpage.pusher
+					#menu_top.ui.fixed.menu.inverted
+						.ui.container
+							.right.menu
+								.item
+									a(href="/").class.ui.image
+										img(src="/images/SGMUdenar.png",style="height:40px")
+					#menu_left.ui.sidebar.vertical.left.menu.inverted
+								//.ui.accordion.styled.inverted.menu
+								.item
+									.title
+										a(href="/").class.ui.image
+											//img(src="/images/AlternarFull.png")
+											img(src="/images/UdenarLogoFull.png")
+								.item
+									.ui.inverted.accordion
+										.title
+											i.dropdown.icon
+											span Información
+										.content.active
+											.menu
+												a.item Estado del sistema
+												a.item Lecturas de entradas
+												a.item Resumen
+								.item
+									.ui.inverted.accordion
+										.title
+											i.dropdown.icon
+											span Acciones
+										.content
+											.menu.transition.hidden
+												a.item Conmutación de estado
+												a.item Gráficas de Señales
+												a.item Análisis de armónicos
+								.item
+									.ui.inverted.accordion
+										.title
+											i.dropdown.icon
+											span Registros
+										.content
+											.menu.transition.hidden
+												a.item Medidas
+												a.item Eventos
+								.item
+									.ui.inverted.accordion
+										.title
+											i.dropdown.icon
+											span Configuración
+										.content
+											.menu.transition.hidden
+												a.item Parámetros
+												a.item Conectividad
+								.item
+									.ui.inverted.accordion
+										.title
+											i.dropdown.icon
+											span Ayuda
+										.content
+											.menu.transition.hidden
+												a.item Ayuda de SGM Udenar
+												a.item Acerca de...
+								.item
+									.ui.inverted.accordion
+										.title(style="margin-top:0px")
+											a(href="/").class.ui.image
+												img(src="/images/AlternarLong.png")
 					block content
 				script.
 					$('.ui.accordion')
