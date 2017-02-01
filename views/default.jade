@@ -5,7 +5,8 @@ html
 		link(rel="stylesheet", href="/semantic/semantic.min.css")
 		script(src="/javascripts/jquery-3.1.1.min.js")
 		script(src="/semantic/semantic.min.js")
-		script(src="/javascripts/chart.js/dist/Chart.bundle.js")
+		//script(src="/javascripts/chart.js/dist/Chart.bundle.js")
+		script(src="/Highcharts-5.0.7/code/highcharts.js")
 		link(rel='stylesheet', href='/stylesheets/style.css')
 		meta(name="viewport", content="width=device-width,initial-scale=1.0, minimum-scale=1")
 	body
@@ -13,20 +14,49 @@ html
 				#menu_left_hide.ui.sidebar.inverted.vertical.menu.left  
 						.item 
 							.ui.inverted.accordion
-								.title.active
-									header Información2
-								.content.active
-									.menu
-										a.item Medida 1
+								.title
+									i.dropdown.icon
+									span Información
+								.content
+									.menu.transition.hidden
+										a.item Resumen
+										a.item Entradas
+						.item 
+							.ui.inverted.accordion
+								.title
+									i.dropdown.icon
+									span Acciones
+								.content
+									.menu.transition.hidden
+										a.item 
 										a.item Medida 2
 						.item 
 							.ui.inverted.accordion
-								.title.active
-									header Acciones
-								.content.active
-									.menu
-										a.item Medida 1
-										a.item Medida 2
+								.title
+									i.dropdown.icon
+									span Registros
+								.content
+									.menu.transition.hidden
+										a.item Históricos
+										a.item Eventos
+						.item 
+							.ui.inverted.accordion
+								.title
+									i.dropdown.icon
+									span Configuración
+								.content
+									.menu.transition.hidden
+										a.item Parámetros
+										a.item Conectividad
+						.item 
+							.ui.inverted.accordion
+								.title
+									i.dropdown.icon
+									span Ayuda
+								.content
+									.menu.transition.hidden
+										a.item Ayuda de SGM Udenar
+										a.item Acerca de...
 				#menu_top.ui.fixed.inverted.menu
 					.ui.container
 						a#m_btn.launch.icon.item
@@ -42,20 +72,49 @@ html
 					#menu_left(style="left: 0px; right: 0px;top: 0px;width: 200px !important").ui.sidebar.inverted.vertical.menu.left
 						.item 
 							.ui.inverted.accordion
-								.title.active
-									header Información1
+								.title
+									i.dropdown.icon
+									span Información
 								.content.active
 									.menu
-										a.item Medida 1
+										a.item Resumen
+										a.item Entradas
+						.item 
+							.ui.inverted.accordion
+								.title
+									i.dropdown.icon
+									span Acciones
+								.content
+									.menu.transition.hidden
+										a.item 
 										a.item Medida 2
 						.item 
 							.ui.inverted.accordion
-								.title.active
-									header Acciones
-								.content.active
-									.menu
-										a.item Medida 1
-										a.item Medida 2
+								.title
+									i.dropdown.icon
+									span Registros
+								.content
+									.menu.transition.hidden
+										a.item Históricos
+										a.item Eventos
+						.item 
+							.ui.inverted.accordion
+								.title
+									i.dropdown.icon
+									span Configuración
+								.content
+									.menu.transition.hidden
+										a.item Parámetros
+										a.item Conectividad
+						.item 
+							.ui.inverted.accordion
+								.title
+									i.dropdown.icon
+									span Ayuda
+								.content
+									.menu.transition.hidden
+										a.item Ayuda de SGM Udenar
+										a.item Acerca de...
 					block content
 				script.
 					$('.ui.accordion')

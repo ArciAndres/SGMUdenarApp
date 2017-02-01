@@ -1,5 +1,4 @@
 var models = require('../models')
-
 module.exports = {
     //funciones del controlador
     index : function(req, res, next) {
