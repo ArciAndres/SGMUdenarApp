@@ -10,6 +10,7 @@ router.get('/measurement/index', controllers.measurement.index);
 router.get('/measure/index', controllers.measure.index);
 router.get('/measure/index2', controllers.measure.index2);
 router.get('/livedata', controllers.livedata.index);
+router.get('/livedata/DB', controllers.livedata.DB);
 
 module.exports = router;
 

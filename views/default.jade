@@ -12,58 +12,62 @@ html
 	body
 		div
 				#menu_left_hide.ui.sidebar.inverted.vertical.menu.left  
-						.item
+					.title
 							a(href="/").class.ui.image
 								//img(src="/images/AlternarFull.png")
 								img(src="/images/UdenarLogoFull.png")
-						.item 
-							.ui.inverted.accordion
-								.title
-									i.dropdown.icon
-									span Información
-								.content.active
-									.menu
-										a.item Resumen
-										a.item Entradas
-						.item 
-							.ui.inverted.accordion
-								.title
-									i.dropdown.icon
-									span Acciones
-								.content
-									.menu.transition.hidden
-										a.item 
-										a.item Medida 2
-						.item 
-							.ui.inverted.accordion
-								.title
-									i.dropdown.icon
-									span Registros
-								.content
-									.menu.transition.hidden
-										a.item Históricos
-										a.item Eventos
-						.item 
-							.ui.inverted.accordion
-								.title
-									i.dropdown.icon
-									span Configuración
-								.content
-									.menu.transition.hidden
-										a.item Parámetros
-										a.item Conectividad
-						.item 
-							.ui.inverted.accordion
-								.title
-									i.dropdown.icon
-									span Ayuda
-								.content
-									.menu.transition.hidden
-										a.item Ayuda de SGM Udenar
-										a.item Acerca de...
-						.item
-							a(href="/").class.ui.image
-								img(src="/images/AlternarLong.png")
+					.item
+						.ui.inverted.accordion
+							.title
+								i.dropdown.icon
+								span Información
+							.content.active
+								.menu
+									a.item(href="/info/estado") Estado del sistema
+									a.item(href="/info/lecturas") Lecturas de entradas
+									a.item(href="/info/resumen") Resumen
+					.item
+						.ui.inverted.accordion
+							.title
+								i.dropdown.icon
+								span Acciones
+							.content
+								.menu.transition.hidden
+									a.item Conmutación de estado
+									a.item Gráficas de Señales
+									a.item Análisis de armónicos
+					.item
+						.ui.inverted.accordion
+							.title
+								i.dropdown.icon
+								span Registros
+							.content
+								.menu.transition.hidden
+									a.item Medidas
+									a.item Eventos
+					.item
+						.ui.inverted.accordion
+							.title
+								i.dropdown.icon
+								span Configuración
+							.content
+								.menu.transition.hidden
+									a.item Parámetros
+									a.item Conectividad
+					.item
+						.ui.inverted.accordion
+							.title
+								i.dropdown.icon
+								span Ayuda
+							.content
+								.menu.transition.hidden
+									a.item Ayuda de SGM Udenar
+									a.item Acerca de...
+					.item
+						.ui.inverted.accordion
+							.title(style="margin-top:0px")
+								a(href="/").class.ui.image
+									img(src="/images/AlternarLong.png")
 				#menu_top_hide.ui.fixed.inverted.menu
 					.ui.container
 						a#m_btn.launch.icon.item
