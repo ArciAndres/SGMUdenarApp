@@ -1,0 +1,108 @@
+<!DOCTYPE html><html><head><title></title><link rel="stylesheet" href="/semantic/semantic.min.css"><script src="/javascripts/jquery-3.1.1.min.js"></script><script src="/semantic/semantic.min.js"></script><!--script(src="/javascripts/chart.js/dist/Chart.bundle.js")--><script src="/Highcharts-5.0.7/code/highcharts.js"></script><link rel="stylesheet" href="/stylesheets/style.css"><meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1"></head><body><div><div id="menu_left_hide" class="ui sidebar inverted vertical menu left"> <div class="item"><a href="/" class="class ui image"><!--img(src="/images/AlternarFull.png")--><img src="/images/UdenarLogoFull.png"></a></div><div class="item"> <div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Información</span></div><div class="content active"><div class="menu"><a class="item">Resumen</a><a class="item">Entradas</a></div></div></div></div><div class="item"> <div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Acciones</span></div><div class="content"><div class="menu transition hidden"><a class="item"> </a><a class="item">Medida 2</a></div></div></div></div><div class="item"> <div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Registros</span></div><div class="content"><div class="menu transition hidden"><a class="item">Históricos</a><a class="item">Eventos</a></div></div></div></div><div class="item"> <div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Configuración</span></div><div class="content"><div class="menu transition hidden"><a class="item">Parámetros</a><a class="item">Conectividad</a></div></div></div></div><div class="item"> <div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Ayuda</span></div><div class="content"><div class="menu transition hidden"><a class="item">Ayuda de SGM Udenar</a><a class="item">Acerca de...</a></div></div></div></div><div class="item"><a href="/" class="class ui image"><img src="/images/AlternarLong.png"></a></div></div><div id="menu_top_hide" class="ui fixed inverted menu"><div class="ui container"><a id="m_btn" class="launch icon item"><i class="content icon"></i></a><div class="item"><a href="/" class="class ui image"><img id="sgmudenarlogo" src="/images/SGMUdenar.png"></a></div></div></div><div id="mainpage" class="pusher"><div id="menu_top" class="ui fixed menu inverted"><div class="ui container"><div class="right menu"><div class="item"><a href="/" class="class ui image"><img src="/images/SGMUdenar.png" style="height:40px"></a></div></div></div></div><div id="menu_left" class="ui sidebar vertical left menu inverted"><!--.ui.accordion.styled.inverted.menu--><div class="item"><div class="title"><a href="/" class="class ui image"><!--img(src="/images/AlternarFull.png")--><img src="/images/UdenarLogoFull.png"></a></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Información</span></div><div class="content active"><div class="menu"><a class="item">Estado del sistema</a><a class="item">Lecturas de entradas</a><a class="item">Resumen</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Acciones</span></div><div class="content"><div class="menu transition hidden"><a class="item">Conmutación de estado</a><a class="item">Gráficas de Señales</a><a class="item">Análisis de armónicos</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Registros</span></div><div class="content"><div class="menu transition hidden"><a class="item">Medidas</a><a class="item">Eventos</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Configuración</span></div><div class="content"><div class="menu transition hidden"><a class="item">Parámetros</a><a class="item">Conectividad</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Ayuda</span></div><div class="content"><div class="menu transition hidden"><a class="item">Ayuda de SGM Udenar</a><a class="item">Acerca de...</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div style="margin-top:0px" class="title"><a href="/" class="class ui image"><img src="/images/AlternarLong.png"></a></div></div></div></div><div class="ui container fluid"><div class="ui grid"><div class="sixteen wide column"><h1 class="ui header dividing blue">Listado </h1><div class="ui grid stackable"><div class="ui two column row"><div class="column"><div id="graph_1"></div></div><div class="column"><script>$(function () {
+//  alert(mydata[0].temp);
+	$(document).ready(function () {
+		Highcharts.setOptions({
+			global: {
+				useUTC: false
+			}
+		});
+		$('#graph_1').highcharts({
+			chart: {
+				type: 'area',
+				marginRight: 10,
+				events: {
+					load: function () {
+						// set up the updating of the chart each second
+						var series = this.series[0];
+						setInterval(function () {
+							$.getJSON('/test.json', function (data) {
+								var y =  parseFloat(data.temp);
+								var x = (new Date()).getTime(); // current time
+								series.addPoint([x, y], true, true);
+							});
+						}, 3000);
+					}
+				}
+			},
+			title: {
+				text: 'Node 1'
+			},
+			xAxis: {
+				type: 'datetime',
+				tickPixelInterval: 150
+			},
+			yAxis: {
+				title: {
+					text: 'Temperture(°C)'
+				}
+			},
+			plotOptions: {
+				area: {
+					fillColor: {
+						linearGradient: {
+							x1: 0,
+							y1: 0,
+							x2: 0,
+							y2: 1
+						},
+						stops: [
+							[0, Highcharts.getOptions().colors[0]],
+							[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+						]
+					},
+					marker: {
+						radius: 0
+					},
+					lineWidth: 1,
+					states: {
+						hover: {
+							lineWidth: 1
+						}
+					},
+					threshold: null
+				}
+			},
+			tooltip: {
+				formatter: function () {
+					return '<b>' + this.series.name + '</b><br/>' +
+					Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+					Highcharts.numberFormat(this.y, 2);
+				}
+			},
+			legend: {
+				enabled: false
+			},
+			exporting: {
+				enabled: false
+			},
+			series: [{
+				name: 'Temperture',
+				data: (function () {
+					// generate an array of random data
+					var data = [],
+					time = (new Date()).getTime(),
+					i;
+					for (i = -300; i <= 0; i += 3) {
+						data.push({
+							x: time + i * 1000,
+							y: 27+Math.random()*0.5
+						});
+					}
+					return data;
+				}())
+			}]
+		});
+	});
+});</script></div></div></div></div></div></div></div><script>$('.ui.accordion')
+	.accordion()
+;
+$(function(){
+	$('#m_btn').on('click',function(e){
+		e.preventDefault();
+		//$('#menu_left_hide').sidebar('setting', 'transition', 'overlay')
+		$('#menu_left_hide').sidebar('toggle');
+	});
+});
+$(function(){
+	$('#menu_left').addClass("visible");
+})</script></div></body></html>

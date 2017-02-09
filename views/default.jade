@@ -2,70 +2,157 @@ doctype html
 html
 	head
 		title= title
-		link(rel='stylesheet', href='/stylesheets/style.css')
 		link(rel="stylesheet", href="/semantic/semantic.min.css")
 		script(src="/javascripts/jquery-3.1.1.min.js")
 		script(src="/semantic/semantic.min.js")
-		meta(name="viewport", content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0")
+		//script(src="/javascripts/chart.js/dist/Chart.bundle.js")
+		script(src="/Highcharts-5.0.7/code/highcharts.js")
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		meta(name="viewport", content="width=device-width,initial-scale=1.0, minimum-scale=1")
 	body
-		ui.container
-			#menu_top.ui.fixed.inverted.menu
-				.ui.container
-					a#m_btn.launch.icon.item
-						i.content.icon
+		div
+				#menu_left_hide.ui.sidebar.inverted.vertical.menu.left  
+					.title
+							a(href="/").class.ui.image
+								//img(src="/images/AlternarFull.png")
+								img(src="/images/UdenarLogoFull.png")
 					.item
-						| SGM Udenar
-					.right.menu
-						.vertically.fitted.borderless.item
-							.ui.button Alternar
-			#menu_left.ui.sidebar.inverted.vertical.menu.left
-				.item 
-					.ui.inverted.accordion
-						.title.active
-							header Información1
-						.content.active
-							.menu
-								a.item Medida 1
-								a.item Medida 2
-				.item 
-					.ui.inverted.accordion
-						.title.active
-							header Acciones
-						.content.active
-							.menu
-								a.item Medida 1
-								a.item Medida 2
-			#menu_left_hide.ui.sidebar.inverted.vertical.menu.left
-				.item 
-					.ui.inverted.accordion
-						.title.active
-							header Información2
-						.content.active
-							.menu
-								a.item Medida 1
-								a.item Medida 2
-				.item 
-					.ui.inverted.accordion
-						.title.active
-							header Acciones
-						.content.active
-							.menu
-								a.item Medida 1
-								a.item Medida 2
-			#mainpage.pusher
-				.ui.masthead.vertical.segment
+						.ui.inverted.accordion
+							.title
+								i.dropdown.icon
+								span Información
+							.content.active
+								.menu
+									a.item(href="/info/estado") Estado del sistema
+									a.item(href="/info/lecturas") Lecturas de entradas
+									a.item(href="/info/resumen") Resumen
+					.item
+						.ui.inverted.accordion
+							.title
+								i.dropdown.icon
+								span Acciones
+							.content
+								.menu.transition.hidden
+									a.item Conmutación de estado
+									a.item Gráficas de Señales
+									a.item Análisis de armónicos
+					.item
+						.ui.inverted.accordion
+							.title
+								i.dropdown.icon
+								span Registros
+							.content
+								.menu.transition.hidden
+									a.item Medidas
+									a.item Eventos
+					.item
+						.ui.inverted.accordion
+							.title
+								i.dropdown.icon
+								span Configuración
+							.content
+								.menu.transition.hidden
+									a.item Parámetros
+									a.item Conectividad
+					.item
+						.ui.inverted.accordion
+							.title
+								i.dropdown.icon
+								span Ayuda
+							.content
+								.menu.transition.hidden
+									a.item Ayuda de SGM Udenar
+									a.item Acerca de...
+					.item
+						.ui.inverted.accordion
+							.title(style="margin-top:0px")
+								a(href="/").class.ui.image
+									img(src="/images/AlternarLong.png")
+				#menu_top_hide.ui.fixed.inverted.menu
+					.ui.container
+						a#m_btn.launch.icon.item
+							i.content.icon
+						.item
+							a(href="/").class.ui.image
+								img#sgmudenarlogo(src="/images/SGMUdenar.png")
+				#mainpage.pusher
+					#menu_top.ui.fixed.menu.inverted
+						.ui.container
+							.right.menu
+								.item
+									a(href="/").class.ui.image
+										img(src="/images/SGMUdenar.png",style="height:40px")
+					#menu_left.ui.sidebar.vertical.left.menu.inverted
+								//.ui.accordion.styled.inverted.menu
+								.item
+									.title
+										a(href="/").class.ui.image
+											//img(src="/images/AlternarFull.png")
+											img(src="/images/UdenarLogoFull.png")
+								.item
+									.ui.inverted.accordion
+										.title
+											i.dropdown.icon
+											span Información
+										.content.active
+											.menu
+												a.item(href="/info/estado") Estado del sistema
+												a.item(href="/info/lecturas") Lecturas de entradas
+												a.item(href="/info/resumen") Resumen
+								.item
+									.ui.inverted.accordion
+										.title
+											i.dropdown.icon
+											span Acciones
+										.content
+											.menu.transition.hidden
+												a.item Conmutación de estado
+												a.item Gráficas de Señales
+												a.item Análisis de armónicos
+								.item
+									.ui.inverted.accordion
+										.title
+											i.dropdown.icon
+											span Registros
+										.content
+											.menu.transition.hidden
+												a.item Medidas
+												a.item Eventos
+								.item
+									.ui.inverted.accordion
+										.title
+											i.dropdown.icon
+											span Configuración
+										.content
+											.menu.transition.hidden
+												a.item Parámetros
+												a.item Conectividad
+								.item
+									.ui.inverted.accordion
+										.title
+											i.dropdown.icon
+											span Ayuda
+										.content
+											.menu.transition.hidden
+												a.item Ayuda de SGM Udenar
+												a.item Acerca de...
+								.item
+									.ui.inverted.accordion
+										.title(style="margin-top:0px")
+											a(href="/").class.ui.image
+												img(src="/images/AlternarLong.png")
 					block content
-			script.
-				$('.ui.accordion')
-					.accordion()
-				;
-				$(function(){
-					$('#m_btn').on('click',function(e){
-						e.preventDefault();
-						//$('#menu_left_hide').sidebar('setting', 'transition', 'overlay')
-						$('#menu_left_hide').sidebar('toggle');
+				script.
+					$('.ui.accordion')
+						.accordion()
+					;
+					$(function(){
+						$('#m_btn').on('click',function(e){
+							e.preventDefault();
+							//$('#menu_left_hide').sidebar('setting', 'transition', 'overlay')
+							$('#menu_left_hide').sidebar('toggle');
+						});
 					});
-				});
-				$(function(){
-					$('#menu_left').addClass("visible");
-				})
+					$(function(){
+						$('#menu_left').addClass("visible");
+					})

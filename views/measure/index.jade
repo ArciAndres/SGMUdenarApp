@@ -1,0 +1,40 @@
+extends ../default
+
+block content
+	.ui.container.fluid
+		.ui.grid
+			.sixteen.wide.column
+				h1.ui.header.dividing.blue Listado de medidas 
+				.ui.grid.stackable
+					.ui.two.column.row
+						.column
+							canvas#myChart(width = "400", height = "400")
+						.column
+							script.
+								var ctx = document.getElementById("myChart");
+								var myChart = new Chart(ctx, {
+									type: 'line',
+									data: {
+										datasets: [{
+										label: 'Scatter Dataset',
+										data: [{
+											x: -10,
+											y: 0
+											}, {
+											x: 0,
+											y: 10
+											}, {
+											x: 10,
+											y: 5
+											}]
+										}]
+									},
+									options: {
+										scales: {
+											xAxes: [{
+												type: 'linear',
+												position: 'bottom'
+											}]
+										}
+									}
+								});

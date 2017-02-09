@@ -1,0 +1,131 @@
+<!DOCTYPE html><html><head><title></title><link rel="stylesheet" href="/semantic/semantic.min.css"><script src="/javascripts/jquery-3.1.1.min.js"></script><script src="/semantic/semantic.min.js"></script><!--script(src="/javascripts/chart.js/dist/Chart.bundle.js")--><script src="/Highcharts-5.0.7/code/highcharts.js"></script><link rel="stylesheet" href="/stylesheets/style.css"><meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1"></head><body><div><div id="menu_left_hide" class="ui sidebar inverted vertical menu left"> <div class="title"><a href="/" class="class ui image"><!--img(src="/images/AlternarFull.png")--><img src="/images/UdenarLogoFull.png"></a></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Información</span></div><div class="content active"><div class="menu"><a href="/info/estado" class="item">Estado del sistema</a><a href="/info/lecturas" class="item">Lecturas de entradas</a><a href="/info/resumen" class="item">Resumen</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Acciones</span></div><div class="content"><div class="menu transition hidden"><a class="item">Conmutación de estado</a><a class="item">Gráficas de Señales</a><a class="item">Análisis de armónicos</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Registros</span></div><div class="content"><div class="menu transition hidden"><a class="item">Medidas</a><a class="item">Eventos</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Configuración</span></div><div class="content"><div class="menu transition hidden"><a class="item">Parámetros</a><a class="item">Conectividad</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Ayuda</span></div><div class="content"><div class="menu transition hidden"><a class="item">Ayuda de SGM Udenar</a><a class="item">Acerca de...</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div style="margin-top:0px" class="title"><a href="/" class="class ui image"><img src="/images/AlternarLong.png"></a></div></div></div></div><div id="menu_top_hide" class="ui fixed inverted menu"><div class="ui container"><a id="m_btn" class="launch icon item"><i class="content icon"></i></a><div class="item"><a href="/" class="class ui image"><img id="sgmudenarlogo" src="/images/SGMUdenar.png"></a></div></div></div><div id="mainpage" class="pusher"><div id="menu_top" class="ui fixed menu inverted"><div class="ui container"><div class="right menu"><div class="item"><a href="/" class="class ui image"><img src="/images/SGMUdenar.png" style="height:40px"></a></div></div></div></div><div id="menu_left" class="ui sidebar vertical left menu inverted"><!--.ui.accordion.styled.inverted.menu--><div class="item"><div class="title"><a href="/" class="class ui image"><!--img(src="/images/AlternarFull.png")--><img src="/images/UdenarLogoFull.png"></a></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Información</span></div><div class="content active"><div class="menu"><a href="/info/estado" class="item">Estado del sistema</a><a href="/info/lecturas" class="item">Lecturas de entradas</a><a href="/info/resumen" class="item">Resumen</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Acciones</span></div><div class="content"><div class="menu transition hidden"><a class="item">Conmutación de estado</a><a class="item">Gráficas de Señales</a><a class="item">Análisis de armónicos</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Registros</span></div><div class="content"><div class="menu transition hidden"><a class="item">Medidas</a><a class="item">Eventos</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Configuración</span></div><div class="content"><div class="menu transition hidden"><a class="item">Parámetros</a><a class="item">Conectividad</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Ayuda</span></div><div class="content"><div class="menu transition hidden"><a class="item">Ayuda de SGM Udenar</a><a class="item">Acerca de...</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div style="margin-top:0px" class="title"><a href="/" class="class ui image"><img src="/images/AlternarLong.png"></a></div></div></div></div><div class="ui container fluid"><h1 class="ui blue header dividing">Lecturas de entradas<h2 class="header">Fase 1</h2><div class="ui two column grid stackable"><div class="column"><div id="graph_1" class="ui segment"></div><script>$(function () {
+//  alert(mydata[0].temp);
+	$(document).ready(function () {
+		Highcharts.setOptions({
+			global: {
+				useUTC: false
+			}
+		});
+		$('#graph_1').highcharts({
+			chart: {
+				type: 'spline',
+				marginRight: 10,
+				events: {
+					load: function requestData() {
+						// set up the updating of the chart each second
+						var series = this.series[0];
+						var shift = false;
+						setInterval(function () {
+							shift = series.data.length > 20;
+							//$.getJSON('/test.json', function (data) {
+							$.getJSON('/livedata', function(data){
+								var y =  parseFloat(data.y);
+								var x =  data.x;
+								series.addPoint( [x,y], true, shift);
+							});
+						}, 2000);
+					}
+				}
+			},
+			title: {
+				text: 'Voltaje'
+			},
+			xAxis: {
+				type: 'datetime',
+				tickPixelInterval: 150
+			},
+			yAxis: {
+				title: {
+					text: 'Voltaje (V)'
+				}
+			},
+			tooltip: {
+				formatter: function () {
+					return '<b>' + this.series.name + '</b><br/>' +
+					Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+					Highcharts.numberFormat(this.y, 2);
+				}
+			},
+			series: [{
+				name: 'Voltaje',
+				data: []
+			}]
+		});
+	});
+});</script></div><div class="column"><div id="graph_2" class="ui segment"></div><script>$(function () {
+	//  alert(mydata[0].temp);
+		$(document).ready(function () {
+			Highcharts.setOptions({
+				global: {
+					useUTC: false
+				}
+			});
+			$('#graph_2').highcharts({
+				chart: {
+					type: 'spline',
+					marginRight: 10,
+					events: {
+						load: function requestData() {
+							// set up the updating of the chart each second
+							var shift = false, redraw = true;
+							var series = this.series;
+							setInterval(function () {
+								//$.getJSON('/test.json', function (data) {
+								$.getJSON('/livedata/DB', function(data){
+									var x,y;
+									for(var i = 0; i < series.length; i++){
+										shift = series[i].data.length > 12;	//Si hay más de estos datos, se empieza a correr
+										redraw = i == 2; //Sólo refresca la grafica cuando llega a la tercera serie. Sino grafica mal
+										x =  data.time;
+										y =  parseFloat(data.y[i]);
+										series[i].addPoint( [x,y], redraw, shift);
+									}
+								});
+							}, 2000);
+						}
+					}
+				},
+				title: {
+					text: 'Voltajes'
+				},
+				xAxis: {
+					type: 'datetime',
+					tickPixelInterval: 150
+				},
+				yAxis: {
+					title: {
+						text: 'Voltaje (V)'
+					}
+				},
+				tooltip: {
+					formatter: function () {
+						return '<b>' + this.series.name + '</b><br/>' +
+						Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+						Highcharts.numberFormat(this.y, 2);
+					}
+				},
+				series: [{
+					name: 'Fase 1',
+					data: []
+				},{
+					name: 'Fase 2',
+					data: []
+				},{
+					name: 'Fase 3',
+					data: []
+				}]
+			});
+		});
+	});</script></div></div></h1></div></div><script>$('.ui.accordion')
+	.accordion()
+;
+$(function(){
+	$('#m_btn').on('click',function(e){
+		e.preventDefault();
+		//$('#menu_left_hide').sidebar('setting', 'transition', 'overlay')
+		$('#menu_left_hide').sidebar('toggle');
+	});
+});
+$(function(){
+	$('#menu_left').addClass("visible");
+})</script></div></body></html>
