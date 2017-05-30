@@ -1,0 +1,48 @@
+extends ../default
+
+block content
+	script(src="/semantic-calendar/dist/calendar.min.js")
+	link(rel='stylesheet', href='/semantic-calendar/dist/calendar.min.css')
+	.ui.container.fluid
+			h1.ui.blue.header.dividing Registros
+				h2.header Medidas
+					div.form-registros
+						form.ui.form(action="/registro/pedirRegistro" method='post')
+							.ui.fields.five
+								.ui.field
+									label Inicio
+									.tSoloFecha.ui.calendar
+										.ui.input.left.icon
+											i.calendar.icon
+											input(type="text" placeholder="Inicio" name="inicio")
+								.ui.field
+									label Final
+									.tSoloFecha.ui.calendar
+										.ui.input.left.icon
+											i.calendar.icon
+											input(type="text" placeholder="Final" name="final")
+								.ui.field
+									label Fase
+									select.ui.fluid.dropdown(name="fase")
+										option(value="1") 1 
+										option(value="2") 2
+										option(value="3") 3
+							button.ui.button.basic.black Aceptar
+					.ui.grid.two.columns.stackable
+						.column
+							#container.ui.segment
+						.column
+							#container2.ui.segment
+	script.
+		getChart('https://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?','container')
+	script.
+		getChart('https://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?','container2')
+	script.
+		$('.tSoloFecha').calendar({
+			type: 'date'
+		});
+
+	script(src="/semantic-calendar/dist/calendar.min.js")
+	link(rel='stylesheet', href='/semantic-calendar/dist/calendar.min.css')
+
+	

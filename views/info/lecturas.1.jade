@@ -1,0 +1,134 @@
+extends ../default
+
+block content
+	.ui.container.fluid
+			h1.ui.blue.header.dividing Lecturas de entradas
+				h2.header Fase 1
+				.ui.container.fluid
+					.ui.grid.two.column.stackable
+						.column
+							div#graph_1.ui.segment
+							script.
+								$(function () {
+								//  alert(mydata[0].temp);
+									$(document).ready(function () {
+										Highcharts.setOptions({
+											global: {
+												useUTC: false
+											}
+										});
+										$('#graph_1').highcharts({
+											chart: {
+												type: 'spline',
+												marginRight: 10,
+												events: {
+													load: function requestData() {
+														// set up the updating of the chart each second
+														var series = this.series[0];
+														var shift = false;
+														setInterval(function () {
+															shift = series.data.length > 20;
+															//$.getJSON('/test.json', function (data) {
+															$.getJSON('/livedata', function(data){
+																var y =  parseFloat(data.y);
+																var x =  data.x;
+																series.addPoint( [x,y], true, shift);
+															});
+														}, 2000);
+													}
+												}
+											},
+											title: {
+												text: 'Voltaje'
+											},
+											xAxis: {
+												type: 'datetime',
+												tickPixelInterval: 150
+											},
+											yAxis: {
+												title: {
+													text: 'Voltaje (V)'
+												}
+											},
+											tooltip: {
+												formatter: function () {
+													return '<b>' + this.series.name + '</b><br/>' +
+													Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+													Highcharts.numberFormat(this.y, 2);
+												}
+											},
+											series: [{
+												name: 'Voltaje',
+												data: []
+											}]
+										});
+									});
+								});
+						.column
+							div#graph_2.ui.segment
+							script.
+									$(function () {
+										//  alert(mydata[0].temp);
+											$(document).ready(function () {
+												Highcharts.setOptions({
+													global: {
+														useUTC: false
+													}
+												});
+												$('#graph_2').highcharts({
+													chart: {
+														type: 'spline',
+														marginRight: 10,
+														events: {
+															load: function requestData() {
+																// set up the updating of the chart each second
+																var shift = false, redraw = true;
+																var series = this.series;
+																setInterval(function () {
+																	//$.getJSON('/test.json', function (data) {
+																	$.getJSON('/livedata/DB', function(data){
+																		var x,y;
+																		for(var i = 0; i < series.length; i++){
+																			shift = series[i].data.length > 12;	//Si hay más de estos datos, se empieza a correr
+																			redraw = i == 2; //Sólo refresca la grafica cuando llega a la tercera serie. Sino grafica mal
+																			x =  data.time;
+																			y =  parseFloat(data.y[i]);
+																			series[i].addPoint( [x,y], redraw, shift);
+																		}
+																	});
+																}, 2000);
+															}
+														}
+													},
+													title: {
+														text: 'Voltajes'
+													},
+													xAxis: {
+														type: 'datetime',
+														tickPixelInterval: 150
+													},
+													yAxis: {
+														title: {
+															text: 'Voltaje (V)'
+														}
+													},
+													tooltip: {
+														formatter: function () {
+															return '<b>' + this.series.name + '</b><br/>' +
+															Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+															Highcharts.numberFormat(this.y, 2);
+														}
+													},
+													series: [{
+														name: 'Fase 1',
+														data: []
+													},{
+														name: 'Fase 2',
+														data: []
+													},{
+														name: 'Fase 3',
+														data: []
+													}]
+												});
+											});
+										});

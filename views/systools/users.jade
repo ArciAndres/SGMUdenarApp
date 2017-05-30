@@ -1,0 +1,22 @@
+extends ../default
+block content
+		.ui.container.fluid
+			h1.ui.blue.header.dividing
+				i.settings.icon
+				.content Configuración
+					.sub.header=title
+		.ui.container.fluid.main
+			.ui.grid.two.column.stackable
+				.column
+					form.ui.form(method="post")
+						.field
+							label Usuario
+							input(type="text", name="name", placeholder="Nombre de Usuario")
+						.field
+							label Correo electrónico
+							input(type="text", name="email", placeholder="Correo Electrónico")
+						.field
+							label Contraseña
+							input(type="password", name="password", placeholder="Contraseña")
+						button.ui.button(type="submit") Crear Usuario
+

@@ -20,6 +20,11 @@ a {
   
 }
 
+.container.main{
+   padding-top: 2em ;
+}
+
+
 
 @media screen and (min-width:600px) {
   #menu_top_hide{

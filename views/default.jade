@@ -6,7 +6,10 @@ html
 		script(src="/javascripts/jquery-3.1.1.min.js")
 		script(src="/semantic/semantic.min.js")
 		//script(src="/javascripts/chart.js/dist/Chart.bundle.js")
-		script(src="/Highcharts-5.0.7/code/highcharts.js")
+		//script(src="/Highcharts-5.0.7/code/highcharts.js")
+		script(src="/Highstock-5.0.7/code/highstock.js")
+		script(src="/javascripts/custom.js")
+		link(rel="icon" href="/images/UdenarIcono.ico")
 		link(rel='stylesheet', href='/stylesheets/style.css')
 		meta(name="viewport", content="width=device-width,initial-scale=1.0, minimum-scale=1")
 	body
@@ -54,6 +57,7 @@ html
 								.menu.transition.hidden
 									a.item Parámetros
 									a.item Conectividad
+									a.item(href="/systools/users") Usuarios
 					.item
 						.ui.inverted.accordion
 							.title
@@ -116,7 +120,7 @@ html
 											span Registros
 										.content
 											.menu.transition.hidden
-												a.item Medidas
+												a.item(href="/registro/medidas") Medidas
 												a.item Eventos
 								.item
 									.ui.inverted.accordion
@@ -127,6 +131,7 @@ html
 											.menu.transition.hidden
 												a.item Parámetros
 												a.item Conectividad
+												a.item(href="/systools/users") Usuarios
 								.item
 									.ui.inverted.accordion
 										.title

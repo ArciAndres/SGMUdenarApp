@@ -11,6 +11,11 @@ router.get('/measure/index', controllers.measure.index);
 router.get('/measure/index2', controllers.measure.index2);
 router.get('/livedata', controllers.livedata.index);
 router.get('/livedata/DB', controllers.livedata.DB);
+router.get('/registro/medidas', controllers.registro.medidas);
+router.post('/registro/pedirRegistro', controllers.registro.pedirRegistro);
+router.get('/auth/signup', controllers.userController.getSignUp);
+router.get('/systools/users', controllers.userController.getUsers);
+router.post('/systools/users', controllers.userController.postNewUser);
 
 module.exports = router;
 

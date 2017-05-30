@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><title></title><link rel="stylesheet" href="/semantic/semantic.min.css"><script src="/javascripts/jquery-3.1.1.min.js"></script><script src="/semantic/semantic.min.js"></script><!--script(src="/javascripts/chart.js/dist/Chart.bundle.js")--><script src="/Highcharts-5.0.7/code/highcharts.js"></script><link rel="stylesheet" href="/stylesheets/style.css"><meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1"></head><body><div><div id="menu_left_hide" class="ui sidebar inverted vertical menu left"> <div class="title"><a href="/" class="class ui image"><!--img(src="/images/AlternarFull.png")--><img src="/images/UdenarLogoFull.png"></a></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Información</span></div><div class="content active"><div class="menu"><a href="/info/estado" class="item">Estado del sistema</a><a href="/info/lecturas" class="item">Lecturas de entradas</a><a href="/info/resumen" class="item">Resumen</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Acciones</span></div><div class="content"><div class="menu transition hidden"><a class="item">Conmutación de estado</a><a class="item">Gráficas de Señales</a><a class="item">Análisis de armónicos</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Registros</span></div><div class="content"><div class="menu transition hidden"><a class="item">Medidas</a><a class="item">Eventos</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Configuración</span></div><div class="content"><div class="menu transition hidden"><a class="item">Parámetros</a><a class="item">Conectividad</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Ayuda</span></div><div class="content"><div class="menu transition hidden"><a class="item">Ayuda de SGM Udenar</a><a class="item">Acerca de...</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div style="margin-top:0px" class="title"><a href="/" class="class ui image"><img src="/images/AlternarLong.png"></a></div></div></div></div><div id="menu_top_hide" class="ui fixed inverted menu"><div class="ui container"><a id="m_btn" class="launch icon item"><i class="content icon"></i></a><div class="item"><a href="/" class="class ui image"><img id="sgmudenarlogo" src="/images/SGMUdenar.png"></a></div></div></div><div id="mainpage" class="pusher"><div id="menu_top" class="ui fixed menu inverted"><div class="ui container"><div class="right menu"><div class="item"><a href="/" class="class ui image"><img src="/images/SGMUdenar.png" style="height:40px"></a></div></div></div></div><div id="menu_left" class="ui sidebar vertical left menu inverted"><!--.ui.accordion.styled.inverted.menu--><div class="item"><div class="title"><a href="/" class="class ui image"><!--img(src="/images/AlternarFull.png")--><img src="/images/UdenarLogoFull.png"></a></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Información</span></div><div class="content active"><div class="menu"><a href="/info/estado" class="item">Estado del sistema</a><a href="/info/lecturas" class="item">Lecturas de entradas</a><a href="/info/resumen" class="item">Resumen</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Acciones</span></div><div class="content"><div class="menu transition hidden"><a class="item">Conmutación de estado</a><a class="item">Gráficas de Señales</a><a class="item">Análisis de armónicos</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Registros</span></div><div class="content"><div class="menu transition hidden"><a class="item">Medidas</a><a class="item">Eventos</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Configuración</span></div><div class="content"><div class="menu transition hidden"><a class="item">Parámetros</a><a class="item">Conectividad</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Ayuda</span></div><div class="content"><div class="menu transition hidden"><a class="item">Ayuda de SGM Udenar</a><a class="item">Acerca de...</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div style="margin-top:0px" class="title"><a href="/" class="class ui image"><img src="/images/AlternarLong.png"></a></div></div></div></div><div class="ui container fluid"><h1 class="ui blue header dividing">Lecturas de entradas<h2 class="header">Fase 1</h2><div class="ui two column grid stackable"><div class="column"><div id="graph_1" class="ui segment"></div><script>$(function () {
+<!DOCTYPE html><html><head><title></title><link rel="stylesheet" href="/semantic/semantic.min.css"><script src="/javascripts/jquery-3.1.1.min.js"></script><script src="/semantic/semantic.min.js"></script><!--script(src="/javascripts/chart.js/dist/Chart.bundle.js")--><!--script(src="/Highcharts-5.0.7/code/highcharts.js")--><script src="/Highstock-5.0.7/code/highstock.js"></script><script src="/javascripts/custom.js"></script><link rel="icon" href="/images/UdenarIcono.ico"><link rel="stylesheet" href="/stylesheets/style.css"><meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1"></head><body><div><div id="menu_left_hide" class="ui sidebar inverted vertical menu left"> <div class="title"><a href="/" class="class ui image"><!--img(src="/images/AlternarFull.png")--><img src="/images/UdenarLogoFull.png"></a></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Información</span></div><div class="content active"><div class="menu"><a href="/info/estado" class="item">Estado del sistema</a><a href="/info/lecturas" class="item">Lecturas de entradas</a><a href="/info/resumen" class="item">Resumen</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Acciones</span></div><div class="content"><div class="menu transition hidden"><a class="item">Conmutación de estado</a><a class="item">Gráficas de Señales</a><a class="item">Análisis de armónicos</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Registros</span></div><div class="content"><div class="menu transition hidden"><a class="item">Medidas</a><a class="item">Eventos</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Configuración</span></div><div class="content"><div class="menu transition hidden"><a class="item">Parámetros</a><a class="item">Conectividad</a><a href="/systools/users" class="item">Usuarios</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Ayuda</span></div><div class="content"><div class="menu transition hidden"><a class="item">Ayuda de SGM Udenar</a><a class="item">Acerca de...</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div style="margin-top:0px" class="title"><a href="/" class="class ui image"><img src="/images/AlternarLong.png"></a></div></div></div></div><div id="menu_top_hide" class="ui fixed inverted menu"><div class="ui container"><a id="m_btn" class="launch icon item"><i class="content icon"></i></a><div class="item"><a href="/" class="class ui image"><img id="sgmudenarlogo" src="/images/SGMUdenar.png"></a></div></div></div><div id="mainpage" class="pusher"><div id="menu_top" class="ui fixed menu inverted"><div class="ui container"><div class="right menu"><div class="item"><a href="/" class="class ui image"><img src="/images/SGMUdenar.png" style="height:40px"></a></div></div></div></div><div id="menu_left" class="ui sidebar vertical left menu inverted"><!--.ui.accordion.styled.inverted.menu--><div class="item"><div class="title"><a href="/" class="class ui image"><!--img(src="/images/AlternarFull.png")--><img src="/images/UdenarLogoFull.png"></a></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Información</span></div><div class="content active"><div class="menu"><a href="/info/estado" class="item">Estado del sistema</a><a href="/info/lecturas" class="item">Lecturas de entradas</a><a href="/info/resumen" class="item">Resumen</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Acciones</span></div><div class="content"><div class="menu transition hidden"><a class="item">Conmutación de estado</a><a class="item">Gráficas de Señales</a><a class="item">Análisis de armónicos</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Registros</span></div><div class="content"><div class="menu transition hidden"><a href="/registro/medidas" class="item">Medidas</a><a class="item">Eventos</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Configuración</span></div><div class="content"><div class="menu transition hidden"><a class="item">Parámetros</a><a class="item">Conectividad</a><a href="/systools/users" class="item">Usuarios</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div class="title"><i class="dropdown icon"></i><span>Ayuda</span></div><div class="content"><div class="menu transition hidden"><a class="item">Ayuda de SGM Udenar</a><a class="item">Acerca de...</a></div></div></div></div><div class="item"><div class="ui inverted accordion"><div style="margin-top:0px" class="title"><a href="/" class="class ui image"><img src="/images/AlternarLong.png"></a></div></div></div></div><script src="/semantic/semantic.min.js"></script><div class="ui container fluid"><h1 class="ui blue header dividing">Lecturas de entradas<h2 class="header">Fase 1</h2><div class="ui container fluid"><div class="ui grid two column stackable"><div class="column"><div id="graph_1" class="ui segment"></div><script>$(function () {
 //  alert(mydata[0].temp);
 	$(document).ready(function () {
 		Highcharts.setOptions({
@@ -23,6 +23,57 @@
 								var x =  data.x;
 								series.addPoint( [x,y], true, shift);
 							});
+						}, 2000);
+					}
+				}
+			},
+			title: {
+				text: 'Voltaje'
+			},
+			xAxis: {
+				type: 'datetime',
+				tickPixelInterval: 150
+			},
+			yAxis: {
+				title: {
+					text: 'Voltaje (V)'
+				}
+			},
+			tooltip: {
+				formatter: function () {
+					return '<b>' + this.series.name + '</b><br/>' +
+					Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+					Highcharts.numberFormat(this.y, 2);
+				}
+			},
+			series: [{
+				name: 'Voltaje',
+				data: []
+			}]
+		});
+	});
+});</script></div><div class="column"><div id="graph_3" class="ui segment"></div><script>$(function () {
+//  alert(mydata[0].temp);
+	$(document).ready(function () {
+		Highcharts.setOptions({
+			global: {
+				useUTC: false
+			}
+		});
+		$('#graph_3').highcharts({
+			chart: {
+				type: 'spline',
+				marginRight: 10,
+				events: {
+					load: function requestData() {
+						// set up the updating of the chart each second
+						var series = this.series[0];
+						var shift = false;
+						setInterval(function () {
+							shift = series.data.length > 20;
+								var y =  data.Fphases[0].fmeasures[0].value;
+								var x =  Date.parse(data.date);
+								series.addPoint( [x,y], true, shift);
 						}, 2000);
 					}
 				}
@@ -83,7 +134,7 @@
 								});
 							}, 2000);
 						}
-					}
+					} 
 				},
 				title: {
 					text: 'Voltajes'
@@ -116,7 +167,13 @@
 				}]
 			});
 		});
-	});</script></div></div></h1></div></div><script>$('.ui.accordion')
+	});</script><script>$( document ).ready(function() {
+	setInterval(function(){
+		$.getJSON('../db.json',function(datos){
+				data = datos;
+		});
+	}, 1000);
+});</script></div></div></div></h1></div></div><script>$('.ui.accordion')
 	.accordion()
 ;
 $(function(){

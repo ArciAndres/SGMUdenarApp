@@ -1,0 +1,91 @@
+extends ../default
+
+block content
+	script(src="/semantic-calendar/dist/calendar.min.js")
+	link(rel='stylesheet', href='/semantic-calendar/dist/calendar.min.css')
+	.ui.container.fluid
+			h1.ui.blue.header.dividing Registros
+				h2.header Medidas
+					div.form-registros
+						form.ui.form(action="/registro/pedirRegistro" method='post')
+							.ui.fields.five
+								.ui.field
+									label Inicio
+									.tSoloFecha.ui.calendar
+										.ui.input.left.icon
+											i.calendar.icon
+											input(type="text" placeholder="Inicio" name="inicio")
+								.ui.field
+									label Final
+									.tSoloFecha.ui.calendar
+										.ui.input.left.icon
+											i.calendar.icon
+											input(type="text" placeholder="Final" name="final")
+								.ui.field
+									label Fase
+									select.ui.fluid.dropdown(name="fase")
+										option(value="1") 1 
+										option(value="2") 2
+										option(value="3") 3
+							button.ui.button.basic.black Aceptar
+					.ui.grid.two.columns.stackable
+						.column
+							#container
+						.column
+							#container2
+					script.
+						$.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?', function (data) {
+							// Create the chart
+							Highcharts.stockChart('container', {
+							rangeSelector: {
+							selected: 1
+							},
+							color: {
+							linearGradient: { x1: 0, x2: 0, y1: 0, y2: 1 },
+							stops: [
+								[0, '#003399'],
+								[1, '#3366AA']
+								]
+							},
+							title: {
+							text: 'Voltaje'
+							},
+							series: [{
+							name: 'AAPL',
+							data: data,
+							tooltip: {
+							valueDecimals: 2
+							}
+							}]
+							});
+							});
+					script.
+						$.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?', function (data) {
+							// Create the chart
+							Highcharts.stockChart('container2', {
+							rangeSelector: {
+							selected: 1
+							},
+							title: {
+							text: 'Corriente'
+							},
+							series: [{
+							name: 'AAPL',
+							data: data,
+							tooltip: {
+							valueDecimals: 2
+							}
+							}]
+							});
+							});
+
+					
+	script.
+		$('.tSoloFecha').calendar({
+			type: 'date'
+		});
+
+	script(src="/semantic-calendar/dist/calendar.min.js")
+	link(rel='stylesheet', href='/semantic-calendar/dist/calendar.min.css')
+
+	

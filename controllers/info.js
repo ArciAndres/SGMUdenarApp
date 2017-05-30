@@ -10,6 +10,5 @@ module.exports = {
         models.measurement.findAll().then(function (measurements) {
             res.render('info/lecturas', {title: 'Lecturas' + sgmudenarstring, measurements: measurements});
         })
-        
     },
 }

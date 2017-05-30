@@ -1,0 +1,25 @@
+extends ../login
+
+block content
+	.ui.middle.aligned.center.aligned.grid
+		.column
+			br		
+			.row
+				img#SGMLogo(src="/images/UdenarLogo.png").image.header
+			.row
+				img#SGMLogo(src="/images/SGMUdenarBig.png").image.header
+			.row
+				h2.ui.blue.image.header
+					.content Autenticación
+			br
+			form.ui.large.form
+				.ui.stacked.segment
+					.field
+						.ui.left.icon.input
+							i.user.icon
+							input(type="text", name="user", placeholder="Usuario")
+					.field
+						.ui.left.icon.input
+							i.lock.icon
+							input(type="password", name="password", placeholder="Contraseña")
+					.ui.fluid.large.blue.submit.button Ingresar
