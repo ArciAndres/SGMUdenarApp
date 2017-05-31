@@ -52,58 +52,22 @@
 			}]
 		});
 	});
-});</script></div><div class="column"><div id="graph_3" class="ui segment"></div><script>$(function () {
-//  alert(mydata[0].temp);
-	$(document).ready(function () {
-		Highcharts.setOptions({
-			global: {
-				useUTC: false
+});</script></div><div class="column"><div id="graph_3" class="ui segment"></div><script>$(document).ready(function () {
+	var timer = setInterval(initChart,50);
+
+	function initChart(){
+		try{
+			if(!(typeof data == 'undefined')){
+				getLiveChart('#graph_3', data, 1, 0)
+				clearInterval(timer);											
 			}
-		});
-		$('#graph_3').highcharts({
-			chart: {
-				type: 'spline',
-				marginRight: 10,
-				events: {
-					load: function requestData() {
-						// set up the updating of the chart each second
-						var series = this.series[0];
-						var shift = false;
-						setInterval(function () {
-							shift = series.data.length > 20;
-								var y =  data.Fphases[0].fmeasures[0].value;
-								var x =  Date.parse(data.date);
-								series.addPoint( [x,y], true, shift);
-						}, 2000);
-					}
-				}
-			},
-			title: {
-				text: 'Voltaje'
-			},
-			xAxis: {
-				type: 'datetime',
-				tickPixelInterval: 150
-			},
-			yAxis: {
-				title: {
-					text: 'Voltaje (V)'
-				}
-			},
-			tooltip: {
-				formatter: function () {
-					return '<b>' + this.series.name + '</b><br/>' +
-					Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
-					Highcharts.numberFormat(this.y, 2);
-				}
-			},
-			series: [{
-				name: 'Voltaje',
-				data: []
-			}]
-		});
-	});
-});</script></div><div class="column"><div id="graph_2" class="ui segment"></div><script>$(function () {
+		}
+		catch(err){
+
+		}
+	}
+	
+})</script></div><div class="column"><div id="graph_2" class="ui segment"></div><script>$(function () {
 	//  alert(mydata[0].temp);
 		$(document).ready(function () {
 			Highcharts.setOptions({
